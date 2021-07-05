@@ -1,10 +1,11 @@
 import React from 'react';
 import './pokemon.css';
-import { Link } from 'react-router-dom'
 
-class Pokemon extends React.Component {
+class PokemonInfo extends React.Component {
   render() {
-    const {name, type, averageWeight, image} = this.props.pokemon;
+    const { pokemons, match: { params: {pokemonName} } } = this.props
+    const pokemon = pokemons.find((pokemon) => pokemon.name === pokemonName)
+    const {name, type, averageWeight, image, moreInfo} = pokemon;
     return (
       <div className="pokemon">
         <div>
@@ -13,12 +14,12 @@ class Pokemon extends React.Component {
           <p>
             Average weight: {`${averageWeight.value} ${averageWeight.measurementUnit}`}
           </p>
+          <p>{moreInfo}</p>
         </div>
         <img src={image} alt={`${name} sprite`} />
-        <Link to={`/pokemons/${name}`} >More Info!</Link>
       </div>
     );
   }
 }
 
-export default Pokemon;
+export default PokemonInfo;
