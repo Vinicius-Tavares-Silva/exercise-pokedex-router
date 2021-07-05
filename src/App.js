@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import pokemons from './data';
 import Pokedex from './Pokedex';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import PokemonInfo from './PokemonInfo';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <h1> Pokedex </h1>
       <BrowserRouter>
+      <Link to='/' >Home</Link>
         <Switch>
           <Route
             exact
